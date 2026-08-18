@@ -1,22 +1,21 @@
-# Soroban Project
+# Contract — Multi-Wallet Payment Tracker
 
-## Project Structure
+Soroban smart contract (Rust + Soroban SDK v27) for the payment tracker dApp.
+See the [root README](../README.md) for the full project overview, the deployed
+testnet contract ID, and setup instructions.
 
-This repository uses the recommended structure for a Soroban project:
+## Build & test
 
-```text
-.
-├── contracts
-│   └── hello_world
-│       ├── src
-│       │   ├── lib.rs
-│       │   └── test.rs
-│       └── Cargo.toml
-├── Cargo.toml
-└── README.md
+```bash
+cargo test                 # run unit tests (happy path + 4 error cases)
+stellar contract build     # → target/wasm32v1-none/release/payment_tracker.wasm
 ```
 
-- New Soroban contracts can be put in `contracts`, each in their own directory. There is already a `hello_world` contract in there to get you started.
-- If you initialized this project with any other example contracts via `--with-example`, those contracts will be in the `contracts` directory as well.
-- Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
-- Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
+## Deploy
+
+```bash
+./deploy.sh                # builds, funds/imports a key, deploys to testnet
+```
+
+The script prints the resulting contract ID and saves it to `.contract-id`.
+Set `STELLAR_SECRET_KEY` to use your own funded testnet key instead of friendbot.
