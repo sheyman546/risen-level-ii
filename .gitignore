@@ -1,0 +1,26 @@
+# Rust / Soroban
+target/
+contract/target/
+.soroban/
+.stellar/
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+*.local
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
